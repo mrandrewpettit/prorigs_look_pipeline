@@ -1,0 +1,491 @@
+global proc shelf_ProRigs () {
+    global string $gBuffStr;
+    global string $gBuffStr0;
+    global string $gBuffStr1;
+
+
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Open rig file" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Open Rig" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "open rig" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "# maya_open_file.py\nfrom open_file import OpenFile\n\n\"\"\"\nScript-level function to initialize and run OpenFile for the current session.\n\"\"\"\n# Create an OpenFile instance\nopen_file_instance = OpenFile()\n\n# Run it\nopen_file_instance.run()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Open Render Scene" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Open Render Scene" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "open render scene" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "from render_scene import RenderScene\n\nrender_scene = RenderScene()\n\nrender_scene.open()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Reference Vdev Light" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Vdev Light" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "vdev" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import maya.cmds as cmds\n\ndef toggle_reference(file_path, namespace):\n    ref_nodes = cmds.ls(type=\"reference\")\n    for ref_node in ref_nodes:\n        try:\n            # Get the reference file path\n            ref_file = cmds.referenceQuery(ref_node, filename=True)\n            if ref_file == file_path:\n                cmds.file(ref_file, removeReference=True)\n                print(f\"Removed reference: {file_path}\")\n                return\n        except RuntimeError:\n            # Some references might not have file paths, ignore them\n            continue\n\n    # If the reference is not found, add it\n    cmds.file(\n        file_path,\n        reference=True,\n        type=\"mayaAscii\",\n        ignoreVersion=True,\n        namespace=namespace\n    )\n    print(f\"Referenced file: {file_path}\")\n\n# Example usage\nfile_to_toggle = \"D:/work/prorigs/assets/global/light_vdev/light_prorigs.ma\"\nnamespace = \"prorigs\"\n\ntoggle_reference(file_to_toggle, namespace)\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Toggle NURBs in viewport" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Toggle NURBs" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "NURBs" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import maya.cmds as cmds\n\ndef toggle_nurbs_vis():\n    panels = cmds.getPanel(type=\"modelPanel\")\n    \n    if not panels:\n        print(\"No active viewports found.\")\n        return\n    \n    for panel in panels:\n        # Check the current state of NURBS curves and surfaces visibility\n        curves_state = cmds.modelEditor(panel, query=True, nurbsCurves=True)\n        surfaces_state = cmds.modelEditor(panel, query=True, nurbsSurfaces=True)\n    \n        # Toggle the visibility state\n        cmds.modelEditor(panel, edit=True, nurbsCurves=not curves_state)\n        cmds.modelEditor(panel, edit=True, nurbsSurfaces=not surfaces_state)\n\ntoggle_nurbs_vis()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Import asset obj file" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Import Geometry" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Import" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import os\nfrom pathlib import Path\n\nimport maya.cmds as cmds\nimport pymel.core as pm\n\ndef usd_export():\n    script_name = 'ProRigs Export'\n    asset_name = os.getenv('PR_ASSET_NAME')\n    asset_type = os.getenv('PR_ASSET_TYPE')\n    \n    asset_directory = Path(os.getenv('PRG_ASSETS')) / 'dev' / 'rigs' / asset_type / asset_name\n    tgt_directory = Path(asset_directory) / 'geom'\n    file_path = Path(tgt_directory) / (asset_name + '.usda')\n    \n    if not os.path.isfile(file_path):\n        # TODO: convert this to an exception to be caught\n        cmds.confirmDialog(title='ProRigs', message=f'Working {asset_name} usd file does not exist. Please create before trying again', button=[\"OK\"]) # TODO: dynamically add title\n        print(f'[ProRigs] Error: failed to import {asset_name}. Working USD file does not exist here: {file_path}')\n        return\n    \n    cmds.mayaUSDImport(file=file_path, preferredMaterial='blinn')\n\n    \"\"\"\n    try:\n        \n        pm.displayInfo(f\"[ProRigs] Successfully imported from {file_path}\")\n    except Exception as e:\n        pm.displayWarning(f\"[ProRigs] Failed to export: {e}\")\n        pm.confirmDialog(\n            title=script_name,\n            message=f'Failed to export: {asset_name}',\n            button=[\"OK\"]\n        )\n    \"\"\"\n            \n    \nusd_export()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Export selected geometry as object" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Export geometry" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Export" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import os\nfrom pathlib import Path\n\nimport maya.cmds as cmds\nimport pymel.core as pm\n\ndef usd_export():\n    script_name = 'ProRigs Export'\n    asset_name = os.getenv('PR_ASSET_NAME')\n    asset_type = os.getenv('PR_ASSET_TYPE')\n    \n    selected_objs = pm.ls(selection=True, long=True, type='transform')\n    selected_meshes = [\n        obj for obj in selected_objs if obj.getShape() and obj.getShape().type() in ['mesh']\n        ]\n    \n    if not selected_meshes:\n        message = 'No geometry selected for export'\n        pm.warning(f'[ProRigs] {message}')\n        pm.confirmDialog(title=script_name, message=message, button=[\"OK\"])\n        return\n    \n    asset_directory = Path(os.getenv('PRG_ASSETS')) / 'dev' / 'rigs' / asset_type / asset_name\n    tgt_directory = Path(asset_directory) / 'geom'\n    file_path = Path(tgt_directory) / (asset_name + '.usda')\n    \n    if os.path.isfile(file_path):\n        result = pm.confirmDialog(\n                    title=script_name,\n                    message='File already exists. Overwrite?',\n                    button=['OK', 'Cancel']\n                    )\n        if result == 'Cancel':\n            pm.displayInfo(f\"[ProRigs] Export cancelled.\")\n            return\n            \n    if not os.path.exists(tgt_directory):\n        pm.displayInfo(f\"[ProRigs] Created directory: {tgt_directory}\")\n        os.makedirs(tgt_directory)\n    \n    try:\n        cmds.mayaUSDExport(file=file_path, exportDisplayColor=True, defaultUSDFormat='usda', kind='group', selection=True)\n        \n        pm.displayInfo(f\"[ProRigs] Successfully exported to {file_path}\")\n    except Exception as e:\n        pm.displayWarning(f\"[ProRigs] Failed to export: {e}\")\n        pm.confirmDialog(\n            title=script_name,\n            message=f'Failed to export: {asset_name}',\n            button=[\"OK\"]\n        )\n            \n    \nusd_export()\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Create placeholdr materials" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Placeholder Materials" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Placeholder" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import random\n\ndef get_rand_color():\n    r = random.uniform(0, 1)\n    g = random.uniform(0, 1)\n    b = random.uniform(0, 1)\n    return (r, g, b)\n    \ndef add_placeholder_material(mat_name):\n    # TODO: check if material already exists\n \n    blinn = cmds.shadingNode('blinn', name=f'tmp_{mat_name}', asShader=True)\n    shadingGroup = cmds.sets(renderable=True, noSurfaceShader=True, empty=True, name=f'{mat_name}')\n        \n    randColor = get_rand_color()\n    cmds.setAttr(f'{blinn}.color', randColor[0], randColor[1], randColor[2], type='float3')\n    cmds.setAttr(f'{blinn}.diffuse', 1.0)\n    cmds.setAttr(f'{blinn}.specularColor', 0.0, 0.0, 0.0)\n    \n    cmds.connectAttr(f'{blinn}.outColor', f'{shadingGroup}.surfaceShader')\n        \n    print(f'[ProRigs] Successfully added \"{mat_name}\" placeholder material')\n    cmds.confirmDialog(title='ProRigs', message=f'Successfully added \"{mat_name}\" placeholder material', button=[\"OK\"]) # TODO: dynamically add title\n    \n    return shadingGroup\n      \ntry:    \n    result = cmds.promptDialog(\n        title='ProRigs Create Material',\n        message='Name of material:',\n        button=[\"OK\", \"Cancel\"],\n        defaultButton=\"OK\",\n        cancelButton=\"Cancel\",\n        dismissString=\"Cancel\"\n    ) # TODO: dynamically add title/message\n\n    if result == \"OK\":\n        mat_name = cmds.promptDialog(query=True, text=True)\n   \n        selected = cmds.ls(selection=True) # TODO: use type to make sure object is selected (i.e. type='transform')\n        # TODO: check for selection and if none ask if user wants to still proceed\n        \n        shading_group = add_placeholder_material(mat_name)\n\n        cmds.select(selected, replace=True)\n        cmds.sets(edit=True, forceElement=shading_group)\nexcept Exception as e:\n    print(f'[ProRigs] Error: {e}')" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Transfer UVs and Bake into rig" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Bake UV Transfer" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "UV" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import maya.cmds as mc\nimport maya.mel as mel\n\ndef bake_uv_tranfer():\n    sel = mc.ls(sl=True)\n    src = sel[0]\n    trg = sel[-1]\n    mc.polyTransfer(trg, uv=1, ao=src)\n    mc.select(sel[-1])\n    #mel.eval('doBakeNonDefHistory(1, {\"prePost\"});')\n    \nbake_uv_tranfer()" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Convert palceholder materails to RGB system materials" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Convert Placeholder Materials" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Convert" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "from functools import partial\nimport maya.cmds as cmds\n\ndef get_shading_groups_from_selected():\n    selected = cmds.ls(selection=True, long=True)  # Get selected objects\n    if not selected:\n        print(\"No objects selected.\")\n        return []\n\n    shading_groups = set()  # Use a set to avoid duplicates\n\n    for obj in selected:\n        # Get all shapes of the selected object (in case of groups)\n        shapes = cmds.listRelatives(obj, shapes=True, fullPath=True) or []\n        \n        for shape in shapes:\n            # Find the shading groups (shading engines) attached to the shape\n            sgs = cmds.listConnections(shape, type='shadingEngine') or []\n            shading_groups.update(sgs)  # Add found shading groups to the set\n\n    return list(shading_groups)\n\ndef create_rgb_attrs(ctrl_name, mat_name):\n    cmds.addAttr(ctrl_name, longName=mat_name+'Shader', attributeType='enum', enumName='Original=0:Custom=1', keyable=True)\n    cmds.addAttr(ctrl_name, longName=mat_name+'Red', niceName = 'Red', attributeType='float', keyable=True, minValue=-1.0, maxValue=1.0)\n    cmds.addAttr(ctrl_name, longName=mat_name+'Green', niceName = 'Green', attributeType='float', keyable=True, minValue=-1.0, maxValue=1.0)\n    cmds.addAttr(ctrl_name, longName=mat_name+'Blue', niceName = 'Blue', attributeType='float', keyable=True, minValue=-1.0, maxValue=1.0)        \n    cmds.addAttr(ctrl_name, longName=mat_name+'Exposure', niceName = 'Exposure', attributeType='float', keyable=True, minValue=-1.0, maxValue=1.0)\n\ndef create_surface_nodes(shading_group, mat_name):\n    aiStandardSurface = cmds.shadingNode('aiStandardSurface', name=f'ai_{mat_name}', asShader=True)\n    blinn = cmds.shadingNode('blinn', name=f'b_{mat_name}', asShader=True)\n\n    cmds.setAttr(f'{blinn}.diffuse', 1.0)\n    cmds.setAttr(f'{blinn}.specularColor', 1.0, 1.0, 1.0)\n    cmds.setAttr(f'{blinn}.reflectivity', 0.0)\n    \n    cmds.connectAttr(f'{aiStandardSurface}.outColor', f'{shading_group}.aiSurfaceShader')\n    cmds.connectAttr(f'{blinn}.outColor', f'{shading_group}.surfaceShader')\n\n    return aiStandardSurface, blinn\n    \ndef create_file_node(mat_name, type):\n    placeTex = cmds.shadingNode('place2dTexture', name=f'p2t_{mat_name}', asUtility=True)\n    file_node = cmds.shadingNode('file', name=f'f_{mat_name}_{type}', isColorManaged=True, asTexture=True)\n\n\n    cmds.connectAttr(f'{placeTex}.coverage', f'{file_node}.coverage')\n    cmds.connectAttr(f'{placeTex}.translateFrame', f'{file_node}.translateFrame')\n    cmds.connectAttr(f'{placeTex}.rotateFrame', f'{file_node}.rotateFrame')\n    cmds.connectAttr(f'{placeTex}.mirrorU', f'{file_node}.mirrorU')\n    cmds.connectAttr(f'{placeTex}.mirrorV', f'{file_node}.mirrorV')\n    cmds.connectAttr(f'{placeTex}.stagger', f'{file_node}.stagger')\n    cmds.connectAttr(f'{placeTex}.wrapU', f'{file_node}.wrapU')\n    cmds.connectAttr(f'{placeTex}.wrapV', f'{file_node}.wrapV')\n    cmds.connectAttr(f'{placeTex}.repeatUV', f'{file_node}.repeatUV')\n    cmds.connectAttr(f'{placeTex}.offset', f'{file_node}.offset')\n    cmds.connectAttr(f'{placeTex}.rotateUV', f'{file_node}.rotateUV')\n    cmds.connectAttr(f'{placeTex}.noiseUV', f'{file_node}.noiseUV')\n    cmds.connectAttr(f'{placeTex}.vertexUvOne', f'{file_node}.vertexUvOne')\n    cmds.connectAttr(f'{placeTex}.vertexUvTwo', f'{file_node}.vertexUvTwo')\n    cmds.connectAttr(f'{placeTex}.vertexUvThree', f'{file_node}.vertexUvThree')\n    cmds.connectAttr(f'{placeTex}.vertexCameraOne', f'{file_node}.vertexCameraOne')\n    cmds.connectAttr(f'{placeTex}.outUV', f'{file_node}.uv')\n    cmds.connectAttr(f'{placeTex}.outUvFilterSize', f'{file_node}.uvFilterSize')\n\n    return file_node\n\ndef baseColor_setup(mat_color, mat_name, ctrl_name):\n    baseColor_file = create_file_node(mat_name, 'baseColor')\n\n    blendInv_floatMath = cmds.shadingNode('floatMath', name=f'fm_{mat_name}_blendInv', asUtility=True)\n    black_blend = cmds.shadingNode('blendColors', name=f'bc_{mat_name}_black', asUtility=True)\n    white_blend = cmds.shadingNode('blendColors', name=f'bc_{mat_name}_white', asUtility=True)\n    xpos_condition = cmds.shadingNode('condition', name=f'c_{mat_name}_xpos', asUtility=True)\n    rgb_colorMath = cmds.shadingNode('colorMath', name=f'cm_{mat_name}_rgb', asUtility=True)\n    clamp = cmds.shadingNode('colorCorrect', name=f'cc_{mat_name}_clamp', asUtility=True)\n    rgb_blend = cmds.shadingNode('blendColors', name=f'bc_{mat_name}_rgb', asUtility=True)\n\n    cmds.setAttr(f'{baseColor_file}.defaultColor', mat_color[0], mat_color[1], mat_color[2], type='float3')\n    cmds.setAttr(f'{blendInv_floatMath}.floatB', -1.0)\n    cmds.setAttr(f'{blendInv_floatMath}.operation', 2)\n    cmds.setAttr(f'{black_blend}.color1', 0, 0, 0)\n    cmds.setAttr(f'{white_blend}.color1', 1, 1, 1)\n    cmds.setAttr(f'{xpos_condition}.operation', 3)\n    cmds.setAttr(f'{clamp}.colClamp', 1)\n    \n    cmds.connectAttr(f'{baseColor_file}.outColor', f'{rgb_colorMath}.colorA')\n    cmds.connectAttr(f'{baseColor_file}.outColor', f'{rgb_blend}.color2')\n    cmds.connectAttr(f'{rgb_colorMath}.outColor', f'{clamp}.inColor')\n    cmds.connectAttr(f'{clamp}.outColor', f'{black_blend}.color2')\n    cmds.connectAttr(f'{clamp}.outColor', f'{white_blend}.color2')\n    cmds.connectAttr(f'{blendInv_floatMath}.outFloat', f'{black_blend}.blender')        \n    cmds.connectAttr(f'{black_blend}.output', f'{xpos_condition}.colorIfFalse')\n    cmds.connectAttr(f'{white_blend}.output', f'{xpos_condition}.colorIfTrue')\n    cmds.connectAttr(f'{xpos_condition}.outColor', f'{rgb_blend}.color1')\n\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Shader', f'{rgb_blend}.blender')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Exposure', f'{blendInv_floatMath}.floatA')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Exposure', f'{white_blend}.blender')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Exposure', f'{xpos_condition}.firstTerm')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Red', f'{rgb_colorMath}.colorBR')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Green', f'{rgb_colorMath}.colorBG')\n    cmds.connectAttr(f'{ctrl_name}.{mat_name}Blue', f'{rgb_colorMath}.colorBB')\n\n    return rgb_blend\n    \ndef bump_setup(mat_name):\n    bump_file = create_file_node(mat_name, 'height')\n    \n    b_bump2d = cmds.shadingNode('bump2d', name=f'b2d_{mat_name}_blinn', asUtility=True)\n    ai_bump2d = cmds.shadingNode('aiBump2d', name=f'ab2d_{mat_name}_ai', asUtility=True)\n    ai_normal = cmds.shadingNode('aiNormalMap', name=f'anm_{mat_name}_ai', asUtility=True)\n    displacement = cmds.shadingNode('displacementShader', name=f'ds_{mat_name}', asUtility=True)\n\n    cmds.connectAttr(f'{bump_file}.outAlpha', f'{b_bump2d}.bumpValue')\n    cmds.connectAttr(f'{bump_file}.outAlpha', f'{ai_bump2d}.bumpMap')\n    cmds.connectAttr(f'{ai_bump2d}.outValue', f'{ai_normal}.input')\n    cmds.connectAttr(f'{bump_file}.outAlpha', f'{displacement}.displacement')\n\n    return b_bump2d, ai_normal, displacement\n\ndef to_RGB_material(ctrl_name, shading_group, mat_type):\n    materials = cmds.listConnections(shading_group + \".surfaceShader\", source=True) or []\n    if len(materials) > 1:\n        print(f'[ProRigs] Error: Multiple materials connected to {shading_group}')\n        return\n    elif len(materials) == 0:\n        print(f'[ProRigs] Error: No materials connected to {shading_group}')\n        return\n    \n    mat_name = shading_group.split('_')[-1]\n    mat_color = cmds.getAttr(materials[0] + \".color\")[0]\n    \n    cmds.delete(materials[0])    \n    # rename shading group to have 'sg_' prefix\n    \n    # TODO: check if tab already exists, if it does print warning\n    cmds.nodeEditor(\"hyperShadePrimaryNodeEditor\", e=True, createTab=[-1, mat_name])\n\n    create_rgb_attrs(ctrl_name, mat_name)\n    \n    aiStandardSurface, blinn = create_surface_nodes(shading_group, mat_name)\n    \n    baseColor = baseColor_setup(mat_color, mat_name, ctrl_name)\n    cmds.connectAttr(f'{baseColor}.output', f'{aiStandardSurface}.baseColor')\n    cmds.connectAttr(f'{baseColor}.output', f'{blinn}.color')\n    \n    roughness = create_file_node(mat_name, 'roughness')\n    cmds.connectAttr(f'{roughness}.outAlpha', f'{aiStandardSurface}.specularRoughness')\n    cmds.connectAttr(f'{roughness}.outAlpha', f'{blinn}.eccentricity')\n    \n    b_bump, ai_bump, displacement = bump_setup(mat_name)\n    cmds.connectAttr(f'{b_bump}.outNormal', f'{blinn}.normalCamera')\n    cmds.connectAttr(f'{ai_bump}.outValue', f'{aiStandardSurface}.normalCamera')\n    cmds.connectAttr(f'{displacement}.displacement', f'{shading_group}.displacementShader')\n\n    if mat_type.lower() == 'metal':\n        metal = create_file_node(mat_name, 'metalness')\n        cmds.connectAttr(f'{metal}.outAlpha', f'{aiStandardSurface}.metalness')\n        cmds.connectAttr(f'{baseColor}.output', f'{blinn}.specularColor')\n        \n    print(f'[ProRigs] Successfully added \"{mat_name}\" material RGB control attributes and shading nodes')\n    cmds.confirmDialog(title='ProRigs', message=f'Successfully added \"{mat_name}\" layer', button=[\"OK\"]) # TODO: dynamically add title\n\ndef on_selection_change(*args):\n    \"\"\"Callback function to handle radio button selection change.\"\"\"\n    selected_value = cmds.radioCollection(radio_group, query=True, select=True)\n    print(f\"Selected: {selected_value}\")  # You can perform actions based on selection here\n\ndef create_type_prompt_dialog(shading_group):\n    \"\"\"Create a custom dialog with radio buttons.\"\"\"\n    if cmds.window(\"ProRigs\", exists=True):\n        cmds.deleteUI(\"ProRigs\", window=True)\n\n    cmds.window(\"ProRigs\", title=\"Select Option\", widthHeight=(300, 150))\n    cmds.columnLayout(adjustableColumn=True)\n\n    cmds.text(label=f'Convert {shading_group.split(\"_\")[-1]}', align='center', height=30)\n\n    # Create a radio collection for exclusive selection\n    global radio_group\n    radio_group = cmds.radioCollection()\n\n    cmds.radioButton(label='Default', select=True)\n    cmds.radioButton(label='Metal')\n    cmds.radioButton(label='Skin')\n\n    cmds.separator(height=10, style='none')\n\n    # Add Accept and Cancel buttons\n    cmds.rowLayout(numberOfColumns=2, columnWidth2=(150, 150))\n    cmds.button(label=\"Accept\", command=partial(on_accept, shading_group))\n    cmds.button(label=\"Cancel\", command=on_cancel)\n\n    cmds.showWindow(\"ProRigs\")\n\ndef on_accept(*args):\n    \"\"\"Handle Accept button click.\"\"\"\n    selected_radio = cmds.radioCollection(radio_group, query=True, select=True)\n    mat_type = cmds.radioButton(selected_radio, query=True, label=True)\n    cmds.deleteUI(\"ProRigs\", window=True)\n\n    to_RGB_material('RGBbrush_ctrl', shading_group, mat_type)\n\ndef on_cancel(*args):\n    \"\"\"Handle Cancel button click.\"\"\"\n    print(\"Canceled\")\n    cmds.deleteUI(\"ProRigs\", window=True)\n\ntry:\n    shading_groups = get_shading_groups_from_selected()\n    shading_groups = sorted(shading_groups)\n    \n    for shading_group in shading_groups:\n        # TODO: dynamically add title/message\n        create_type_prompt_dialog(shading_group)\nexcept Exception as e:\n    print(f'[ProRigs] Error: {e}')\n\n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    shelfButton
+        -enableCommandRepeat 1
+        -flexibleWidthType 3
+        -flexibleWidthValue 32
+        -enable 1
+        -width 35
+        -height 34
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -annotation "Update texture files" 
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -align "center" 
+        -label "Update Tex Files" 
+        -labelOffset 0
+        -rotation 0
+        -flipX 0
+        -flipY 0
+        -useAlpha 1
+        -imageOverlayLabel "Tex" 
+        -overlayLabelColor 0.8 0.8 0.8 
+        -overlayLabelBackColor 0 0 0 0.5 
+        -image "commandButton.png" 
+        -image1 "commandButton.png" 
+        -style "iconOnly" 
+        -marginWidth 1
+        -marginHeight 1
+        -command "import os\nimport re\nimport shutil\nfrom pathlib import Path\n\nimport maya.cmds as cmds\n\ndef flush_arnold_textures():\n    try:\n        # Clear all texture caches in Arnold\n        cmds.arnoldFlushCache( textures=True )\n        print(\"All Arnold textures have been flushed.\")\n    except Exception as e:\n        print(f\"Failed to flush textures: {e}\")\n    \ndef move_all_files(src_folder, dest_folder):\n    # Ensure the source and destination folders exist\n    if not os.path.exists(src_folder):\n        raise FileNotFoundError(f\"Source folder not found: {src_folder}\")\n    if not os.path.exists(dest_folder):\n        os.makedirs(dest_folder)  # Create destination folder if it doesn't exist\n\n    # Iterate over all files in the source folder\n    for filename in os.listdir(src_folder):\n        src_file = os.path.join(src_folder, filename)\n        dest_file = os.path.join(dest_folder, filename)\n\n        # If the file already exists in the destination, remove it\n        if os.path.exists(dest_file):\n            os.remove(dest_file)\n\n        # Move the file\n        shutil.move(src_file, dest_folder)\n\n    print(f\"All files moved from {src_folder} to {dest_folder}.\")\n\ndef locate_file(folder_path, asset_name, key):\n    # Define the regex pattern to match the new key and .tif extension\n    pattern = re.compile(rf\"{asset_name}_{key}\\.\\d{{4}}\\.tif\", re.IGNORECASE)\n\n    # Get the list of files in the specified folder (no subdirectories)\n    files = os.listdir(folder_path)\n\n    # Search through the list of files for matching filenames\n    for file_name in files:\n        if pattern.match(file_name):\n            return file_name  # Return only the filename\n\n    return None\n\ndef get_specific_shading_nodes():\n    node_types = ['file']  # Add more if needed\n    shading_nodes = []\n    for node_type in node_types:\n        nodes = cmds.ls(type=node_type)\n        shading_nodes.extend(nodes)\n    return shading_nodes\n\n\nflush_arnold_textures()\n\nasset_name = os.getenv('PR_ASSET_NAME')\nasset_type = os.getenv('PR_ASSET_TYPE')\nasset_tex_directory = Path(os.getenv('PRG_ASSETS')) / 'dev' / 'rigs' / asset_type / asset_name / 'tex'\ntgt_directory = os.getenv('PRG_MAYA_SOURCEIMAGES')\n\nmove_all_files(asset_tex_directory, tgt_directory)\n\nshading_nodes = get_specific_shading_nodes()\n\nfor node in shading_nodes:\n    folder_path = os.getenv('PRG_MAYA_SOURCEIMAGES')\n    asset_name = os.getenv('PR_ASSET_NAME')\n    key = node[2:]\n    \n    file_path = locate_file(folder_path, asset_name, key)\n    file_path = Path('sourceimages') / file_path\n    \n    cmds.setAttr(f'{node}.fileTextureName', file_path, type='string')\n    cmds.setAttr(f'{node}.ignoreColorSpaceFileRules', 1)\n    if key.split('_')[-1].lower() != 'basecolor':\n        cmds.setAttr(f'{node}.colorSpace', 'Raw', type='string')\n    else:\n        cmds.setAttr(f'{node}.colorSpace', 'sRGB', type='string')\n        \n" 
+        -sourceType "python" 
+        -commandRepeatable 1
+        -flat 1
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+    separator
+        -enable 1
+        -width 12
+        -height 35
+        -manage 1
+        -visible 1
+        -preventOverride 0
+        -enableBackground 0
+        -backgroundColor 0 0 0 
+        -highlightColor 0.321569 0.521569 0.65098 
+        -style "shelf" 
+        -horizontal 0
+    ;
+
+} 
