@@ -46,7 +46,6 @@ class LauncherModel:
 
     def get_maya_env(self, asset_type, asset_name):
         prorigs_maya_root = os.environ['PRG_MAYA']
-        print(f'PRG_MAYA: {prorigs_maya_root}')
         maya_root = os.environ['AUTODESK_ROOT'] + f'\\maya{self._curr_software_version}'
         
         maya_env = {

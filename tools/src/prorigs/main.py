@@ -1,5 +1,5 @@
 from pathlib import Path
-import sys
+import os,sys
 
 from PySide2.QtWidgets import QApplication
 from qt_material import apply_stylesheet
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     
     apply_stylesheet(app, theme='dark_amber.xml')
 
-    logger = AppLogger('logs/app.log')
+    logger = AppLogger(os.environ['PRG_ROOT'] + '\\logs\\app.log')
     
     view = LauncherMainWindow(logger)
     #logger.add_text_handler(view.log_text_edit)
