@@ -1,11 +1,11 @@
 #TODO might be able to craete a parent dialog that uses a buttonbox
 
-from PySide6.QtCore import Signal
-from PySide6.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QLineEdit, QVBoxLayout
+from PySide2.QtCore import Signal
+from PySide2.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QLineEdit, QVBoxLayout
 
-from tools.lib.views.assets_view import AssetsView
-from tools.lib.controllers.assets_controller import AssetsController
-from tools.lib.models.assets_model import AssetsModel
+from views.assets_widget import AssetsWidget
+from controllers.assets_controller import AssetsController
+from models.assets_model import AssetsModel
 
 class NewAssetDialog(QDialog):
     new_asset = Signal(str, str)
@@ -25,16 +25,15 @@ class NewAssetDialog(QDialog):
         self.input_layout.addRow('New Asset Name: ', self.asset_name_input)
 
         self.assets_model = AssetsModel()
-        self.assets_view = AssetsView()
-        self.assets_controller = AssetsController(self.assets_model, self.assets_view)
-        self.assets_view.asset_names_label.hide()
-        self.assets_view.asset_names_combo_box.hide()
+        self.assets_widget = AssetsWidget()
+        self.assets_controller = AssetsController(self.assets_model, self.assets_widget)
+        self.assets_widget.asset_names_combo_box.hide()
 
         self.button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         self.button_box.button(QDialogButtonBox.Ok).setEnabled(False)
 
         self.main_layout.addLayout(self.input_layout)
-        self.main_layout.addWidget(self.assets_view)
+        self.main_layout.addWidget(self.assets_widget)
         self.main_layout.addWidget(self.button_box)
         
         self.setLayout(self.main_layout)
@@ -51,5 +50,6 @@ class NewAssetDialog(QDialog):
     def on_ok_clicked(self):
         asset_name = self.asset_name_input.text().strip()
         asset_type = self.assets_view.asset_types_combo_box.currentText()
+        print(f"Emitting signal: asset_type={asset_type}, asset_name={asset_name}")  # Debugging line
         self.new_asset.emit(asset_type, asset_name)  # Emit signal to controller
         self.accept()  # Close the dialog

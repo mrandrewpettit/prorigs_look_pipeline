@@ -46,3 +46,4 @@ def configure_render_settings():
 
 def configure_scene_settings():
     print("# [ProRigs] Configured Scene settings")
+    cmds.setAttr('hardwareRenderingGlobals.transparencyAlgorithm', 1)

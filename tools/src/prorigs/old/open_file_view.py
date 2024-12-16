@@ -1,8 +1,8 @@
 from PySide2.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget
 
-from views.assets_view import AssetsView
-from controllers.assets_controller import AssetsController
-from models.assets_model import AssetsModel
+from tools.src.prorigs.old.assets_view import AssetsView
+from tools.src.prorigs.old.assets_controller import AssetsController
+from tools.src.prorigs.old.assets_model import AssetsModel
 
 class OpenFileView(QMainWindow):
     def __init__(self, parent=None):

@@ -1,8 +1,8 @@
 from models.assets_model import AssetsModel
-from views.assets_view import AssetsView
+from views.assets_widget import AssetsWidget
 
 class AssetsController:
-    def __init__(self, model: AssetsModel, view: AssetsView):
+    def __init__(self, model: AssetsModel, view: AssetsWidget):
         self.model = model
         self.view = view
 

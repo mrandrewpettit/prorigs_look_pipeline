@@ -3,7 +3,7 @@ from pathlib import Path
 
 class AssetsModel:
     def __init__(self):
-        self._rig_dir = Path(os.getenv("PRORIGS_ASSETS")) / 'dev' / 'rigs'
+        self._rig_dir = Path(os.getenv("PRG_ASSETS")) / 'dev' / 'rigs'
 
         self._asset_types = [
             item for item in os.listdir(self._rig_dir)
@@ -12,7 +12,7 @@ class AssetsModel:
         self._curr_asset_type = self._asset_types[0]
         
         self.update_asset_names()
-
+    '''
     def get_asset_files(self):
         type_dir = Path(os.getenv('PRG_MAYA_SCENES')) / self._curr_asset_type
 
@@ -23,7 +23,7 @@ class AssetsModel:
                 asset_files.append(file_path)
 
         return asset_files
-        
+    '''
     def get_asset_names(self):
         return self._asset_names
 

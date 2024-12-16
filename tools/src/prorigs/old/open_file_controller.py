@@ -6,7 +6,7 @@ import pymel.core as pm
 from PySide2.QtWidgets import QDialog
 
 import utils.maya_settings as ms
-from views.open_file_view import OpenFileView
+from tools.src.prorigs.old.open_file_view import OpenFileView
 from views.list_selection_dialog import ListSelectionDialog
 
 class OpenFileController():

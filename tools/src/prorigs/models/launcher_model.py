@@ -13,7 +13,7 @@ class LauncherModel:
         self._curr_software = self._softwares[0]
 
         self.update_software_versions()
-        
+
     def get_softwares(self):
         return self._softwares
 
@@ -44,9 +44,11 @@ class LauncherModel:
 
         return houdini_env
 
-    def get_maya_env(self):
+    def get_maya_env(self, asset_type, asset_name):
         prorigs_maya_root = os.environ['PRG_MAYA']
+        print(f'PRG_MAYA: {prorigs_maya_root}')
         maya_root = os.environ['AUTODESK_ROOT'] + f'\\maya{self._curr_software_version}'
+        
         maya_env = {
             'PATH': os.environ['PATH'] + 
                     f';{prorigs_maya_root}\\common\\plug-ins;' + 
@@ -55,7 +57,7 @@ class LauncherModel:
                           f';{maya_root}\\python;{prorigs_maya_root}\\common;' + 
                           f'{prorigs_maya_root}\\common\\scripts;' + 
                           f'{prorigs_maya_root}\\maya{self._curr_software_version}\\scripts',
-            'MAYA_PROJECT': f'{prorigs_maya_root}\\common\\projects\\ProRigs',
+            'MAYA_PROJECT': os.environ.get('PRG_ASSETS') + f'\\dev\\rigs\\{asset_type}\\{asset_name}',
             'MAYA_PLUG_IN_PATH': os.environ.get('MAYA_PLUG_IN_PATH', '') +
                                  f';{prorigs_maya_root}\\common\\plug-ins;' + 
                                  f'{prorigs_maya_root}\\maya{self._curr_software_version}\\plug-ins;' +
@@ -72,7 +74,9 @@ class LauncherModel:
             'MAYA_DISABLE_CIP': '1',
             'MAYA_DISABLE_CER': '1',
             'MAYA_DISABLE_PLUGIN_SCENE_MODIFIED_WARNING': '1',
-            'MAYA_EXE': f'{maya_root}\\bin\\maya.exe'
+            'MAYA_EXE': f'{maya_root}\\bin\\maya.exe',
+            'PRG_ASSET_TYPE': asset_type,
+            'PRG_ASSET_NAME': asset_name
         }
 
         return maya_env

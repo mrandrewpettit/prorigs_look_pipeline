@@ -3,14 +3,14 @@ import logging, os, subprocess
 from models.launcher_model import LauncherModel
 from utils.logger import AppLogger
 #from controllers.import_scene_controller import ImportSceneController
-#from controllers.new_asset_controller import NewAssetController
+from controllers.new_asset_controller import NewAssetController
 #from views.import_scene_dialog import ImportSceneDialog
-from views.list_selection_dialog import ListSelectionDialog
-#from views.new_asset_dialog import NewAssetDialog
-from views.launcher_view import LauncherView
+from models.new_asset_model import NewAssetModel
+from views.new_asset_dialog import NewAssetDialog
+from views.launcher_mainWindow import LauncherMainWindow
 
 class LauncherController():
-    def __init__(self, view: LauncherView, model: LauncherModel, logger: AppLogger):
+    def __init__(self, view: LauncherMainWindow, model: LauncherModel, logger: AppLogger):
         self.model = model
         self.view = view
         self.logger = logger
@@ -21,6 +21,7 @@ class LauncherController():
         self.view.software_versions_combo_box.currentIndexChanged.connect(self._update_software_version)
 
         self.view.launch_button.clicked.connect(self.open_software)
+        self.view.new_asset_button.clicked.connect(self.create_new_asset)
         #self.view.import_scene_file_button.clicked.connect(self.import_scene_file)
         #self.view.package_button.clicked.connect(self.package)
 
@@ -45,14 +46,12 @@ class LauncherController():
         software_versions = self.model.get_software_versions()
         self.view.update_software_versions(software_versions)
 
-    '''
     def create_new_asset(self):
         new_asset_dialog = NewAssetDialog(self.view)
-        NewAssetController(new_asset_dialog, self.logger)
+        new_asset_model = NewAssetModel()
+        controller = NewAssetController(new_asset_dialog, new_asset_model, self.logger)
         new_asset_dialog.exec()
-        
-        self.view.assets_controller.load_asset_names()
-    
+    '''
     def import_scene_file(self):
         import_scene_dialog = ImportSceneDialog(self.view)
         ImportSceneController(self.import_scene_dialog, self.logger)
@@ -63,12 +62,12 @@ class LauncherController():
             for env_var in env:
                 os.environ[env_var] = env[env_var]
 
-        tgt_software = self.model.get_current_software()
-
         env = {}
         exe = ''
+        tgt_software = self.model.get_current_software()
         if tgt_software == 'maya':
-            env = self.model.get_maya_env()
+            env = self.model.get_maya_env(self.view.assets_model.get_current_asset_type(), 
+                                          self.view.assets_model.get_current_asset_name())
             init_env(env)
             exe = os.environ['MAYA_EXE']
         elif tgt_software == 'substance painter':
@@ -95,37 +94,6 @@ class LauncherController():
             print(f'Error: {e}')
         except Exception as e:
             print(f'An unexpected error occurred: {e}')
-
-    def _open_maya(self):
-        # set maya env vars
-        maya_env = self.model.get_maya_env()
-        for env_var in maya_env:
-            os.environ[env_var] = maya_env[env_var]
-
-        try:
-            maya_exe = os.environ.get('MAYA_EXE')
-            if not maya_exe:
-                raise EnvironmentError('MAYA_EXE environment variable is not set.')
-            if not os.path.exists(maya_exe):
-                raise FileNotFoundError(f'Maya executable not found at: {maya_exe}')
-
-            process = subprocess.Popen([maya_exe], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            return process  # Return the process to capture output (Stdout and Stderr)
-
-        except (EnvironmentError, FileNotFoundError) as e:
-            print(f'Error: {e}')
-        except Exception as e:
-            print(f'An unexpected error occurred: {e}')
-
-    def _open_substance_painter(self):
-        substance_painter_env = self.model.get_substance_painter_env()
-        for env_var in substance_painter_env:
-            os.environ[env_var] = substance_painter_env[env_var]
-
-        test = os.environ['SUBSTANCE_PAINTER_EXE']
-        print(f'SUB PAINTER EXE: {test}')
-        
-        
 """
     def package(self):
         # set Geo Reference: Normal
