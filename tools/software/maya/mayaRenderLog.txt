@@ -1,0 +1,250 @@
+
+
+
+12/23/2024
+
+Starting "C:\Program Files\Autodesk\maya2022\bin\mayabatch.exe"
+Initialized VP2.0 renderer {
+  Version : 2016.11.62.12. Feature Level 5.
+  Adapter : NVIDIA GeForce RTX 4060 Laptop GPU/PCIe/SSE2
+  Vendor ID: 4318. Device ID : 42888
+  Driver : .
+  API : OpenGL V.4.6.
+  Max texture size : 16384 * 16384.
+  Max texture coords : 32
+  Shader versions supported (Vertex: 5, Geometry: 5, Pixel 5).
+  Shader compiler profile : (Best card profile)
+  Active stereo support available : 0
+  GPU Memory Limit : 8188 MB.
+  CPU Memory Limit : 30852.1 MB.
+  MultiDraw consolidation : enabled
+}
+OpenCL evaluator is attempting to initialize OpenCL.
+Detected 2 OpenCL Platforms: 
+ 0: NVIDIA Corporation. NVIDIA CUDA. OpenCL 3.0 CUDA 12.7.29.
+ Supported extensions: cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_khr_fp64 cl_khr_3d_image_writes cl_khr_byte_addressable_store cl_khr_icd cl_khr_gl_sharing cl_nv_compiler_options cl_nv_device_attribute_query cl_nv_pragma_unroll cl_nv_d3d10_sharing cl_khr_d3d10_sharing cl_nv_d3d11_sharing cl_nv_copy_opts cl_nv_create_buffer cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_device_uuid cl_khr_pci_bus_info cl_khr_external_semaphore cl_khr_external_memory cl_khr_external_semaphore_win32 cl_khr_external_memory_win32 cl_khr_semaphore 
+ Selected matching OpenCL Platform: NVIDIA Corporation NVIDIA CUDA OpenCL 3.0 CUDA 12.7.29.
+ 1: Intel(R) Corporation. Intel(R) OpenCL Graphics. OpenCL 3.0 .
+ Supported extensions: cl_khr_byte_addressable_store cl_khr_device_uuid cl_khr_fp16 cl_khr_global_int32_base_atomics cl_khr_global_int32_extended_atomics cl_khr_icd cl_khr_local_int32_base_atomics cl_khr_local_int32_extended_atomics cl_intel_command_queue_families cl_intel_subgroups cl_intel_required_subgroup_size cl_intel_subgroups_short cl_khr_spir cl_intel_accelerator cl_intel_driver_diagnostics cl_khr_priority_hints cl_khr_throttle_hints cl_khr_create_command_queue cl_intel_subgroups_char cl_intel_subgroups_long cl_khr_il_program cl_intel_mem_force_host_memory cl_khr_subgroup_extended_types cl_khr_subgroup_non_uniform_vote cl_khr_subgroup_ballot cl_khr_subgroup_non_uniform_arithmetic cl_khr_subgroup_shuffle cl_khr_subgroup_shuffle_relative cl_khr_subgroup_clustered_reduce cl_intel_device_attribute_query cl_khr_suggested_local_work_size cl_intel_split_work_group_barrier cl_intel_spirv_media_block_io cl_intel_spirv_subgroups cl_khr_spirv_linkonce_odr cl_khr_spirv_no_integer_wrap_decoration cl_intel_unified_shared_memory cl_khr_mipmap_image cl_khr_mipmap_image_writes cl_ext_float_atomics cl_khr_external_memory cl_intel_planar_yuv cl_intel_packed_yuv cl_khr_int64_base_atomics cl_khr_int64_extended_atomics cl_khr_image2d_from_buffer cl_khr_depth_images cl_khr_3d_image_writes cl_intel_media_block_io cl_intel_subgroup_local_block_io cl_khr_integer_dot_product cl_khr_gl_sharing cl_khr_gl_depth_images cl_khr_gl_event cl_khr_gl_msaa_sharing cl_khr_d3d10_sharing cl_khr_d3d11_sharing cl_intel_d3d11_nv12_media_sharing cl_intel_sharing_format_query cl_khr_pci_bus_info cl_intel_simultaneous_sharing  
+OpenCL evaluator choosing OpenCL platform NVIDIA Corporation.
+OpenCL evaluator is unable to find a GPU device that can share VBOs with OpenGL.
+00:00:08  1350MB         | log started Mon Dec 23 00:01:53 2024
+00:00:08  1350MB         | Arnold 7.0.0.3 [ccc33ba9] windows clang-10.0.1 oiio-2.3.2 osl-1.12.0 vdb-7.1.1 clm-2.0.0.235 rlm-14.1.3 optix-6.6.0 2022/02/16 18:36:18
+00:00:08  1350MB         | running on LAPTOP-00IGJ333, pid=14432
+00:00:08  1350MB         |  1 x Intel(R) Core(TM) i9-14900HX (32 cores, 32 logical) with 32475MB
+00:00:08  1350MB         |  NVIDIA driver version 565.90 (Optix 60807)
+00:00:08  1350MB         |  GPU 0: NVIDIA GeForce RTX 4060 Laptop GPU @ 1890MHz (compute 8.9) with 8187MB (1481MB available) (NVLink:0)
+00:00:08  1350MB         |  Windows 10 (version 10.0, build 22631)
+00:00:08  1350MB         |  soft limit for open files changed from 512 to 2048
+00:00:08  1350MB         |  
+00:00:08  1350MB         | [color_manager_ocio] default ocio.config found in C:\Program Files\Autodesk\Arnold\maya2022\bin\..\ocio\configs\arnold\config.ocio
+00:00:08  1350MB         | loading plugins from C:/Program Files/Autodesk/Arnold/maya2022/shaders ...
+00:00:08  1350MB         |  hairPhysicalShader_shaders.dll: HairPhysicalShaderDiffuseColorAdapter uses Arnold 7.0.0.3
+00:00:08  1350MB         |  hairPhysicalShader_shaders.dll: HairPhysicalShaderSpecularWeightAdapter uses Arnold 7.0.0.3
+00:00:08  1350MB         |  hairPhysicalShader_shaders.dll: HairPhysicalShaderSpecularGlossAdapter uses Arnold 7.0.0.3
+00:00:08  1350MB         |  hairPhysicalShader_shaders.dll: HairPhysicalShaderTransmissionWeightAdapter uses Arnold 7.0.0.3
+00:00:08  1350MB         |  hairPhysicalShader_shaders.dll: HairPhysicalShaderTransmissionSpreadAdapter uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatConstant uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatComposite uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatCondition uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatCorrect uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatLogic uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatMask uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkFloatMath uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkColorComposite uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkColorCondition uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkColorConstant uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkColorCorrect uses Arnold 7.0.0.3
+00:00:08  1350MB         |  lookdevkit_shaders.dll: ldkColorLogic uses Arnold 7.0.0.3
+00:00:08  1351MB         |  lookdevkit_shaders.dll: ldkColorMask uses Arnold 7.0.0.3
+00:00:08  1351MB         |  lookdevkit_shaders.dll: ldkColorMath uses Arnold 7.0.0.3
+00:00:08  1351MB         |  lookdevkit_shaders.dll: ldkChannels uses Arnold 7.0.0.3
+00:00:08  1351MB         |  lookdevkit_shaders.dll: ldkPremultiply uses Arnold 7.0.0.3
+00:00:08  1351MB         |  lookdevkit_shaders.dll: ldkSimplexNoise uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaMultiplyDivide uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaClamp uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaGammaCorrect uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaCondition uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaReverse uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaBlendColors uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaSamplerInfo1D uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaSamplerInfo2D uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaPlusMinusAverage1D uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaPlusMinusAverage2D uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaPlusMinusAverage3D uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRemapValueToValue uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRemapValueToColor uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRemapColor uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaFile uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaPlace2DTexture uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRamp uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaProjection uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaChecker uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaBulge uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaCloth uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaGrid uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaFractal uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaNoise uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaPlace3DTexture uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRgbToHsv uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaHsvToRgb uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaLuminance uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaCloud uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaCloudAlpha uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaSnow uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaContrast uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaLayeredTexture uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaSolidFractal uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaVolumeNoise uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaBrownian uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaStucco uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaRemapHsv uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaSetRange uses Arnold 7.0.0.3
+00:00:08  1351MB         |  mtoa_shaders.dll: MayaImagePlane uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaSurfaceShader uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaColorToFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaVectorToFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaPointToFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaPoint2ToFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaWriteColor uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAovWriteColor uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaWriteFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAovWriteFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaEnvSphere uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAnimFloat uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAnimPoint uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAnimVector uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAnimColor uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAnimMatrix uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaUserDataVector uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaUserDataColor uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaShadingEngine uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaSamplerInfo3D uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAovWriteVector uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaAovWriteVector2 uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaNormalDisplacement uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaVectorDisplacement uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaUserDataBool uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaHair uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaMeshLightMaterial uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaUserDataVec2 uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaBump2D uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaFluid uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaMarble uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaMountain uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaWater uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaCrater uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaLeather uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaGranite uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaRock uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaSingleShadingSwitch uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaDoubleShadingSwitch uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaTripleShadingSwitch uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaQuadShadingSwitch uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaFluidData uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaFluidTexture2D uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaSurfaceLuminance uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MtoaCameraUvMapper uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_shaders.dll: MayaFlatClosure uses Arnold 7.0.0.3
+00:00:08  1352MB         |  [metadata] loading metadata file: C:/Program Files/Autodesk/Arnold/maya2022/shaders\mtoa_shaders.mtd
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyAbsFloatOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyAbs2FloatsOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyAbs3FloatsOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyAbsIntOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyRelFloatOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyRel2FloatsOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyRel3FloatsOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  renderSetup_shaders.dll: applyRelIntOverride uses Arnold 7.0.0.3
+00:00:08  1352MB         |  xgenSpline_shaders.dll: XGenHairMapping uses Arnold 7.0.0.3
+00:00:08  1352MB         | loading plugins from C:/Program Files/Autodesk/Arnold/maya2022/procedurals ...
+00:00:08  1352MB         |  mtoa_ParticleInstancer_proc.dll: particleInstancer uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_ParticleVolume_proc.dll: volume_particle uses Arnold 7.0.0.3
+00:00:08  1352MB         |  mtoa_ParticleVolume_proc.dll: implicit_particle uses Arnold 7.0.0.3
+00:00:08  1353MB         |  xgenSpline_procedural.dll: xgenProcedural uses Arnold 7.0.0.3
+00:00:08  1353MB         |  xgen_procedural.dll: xgen_procedural uses Arnold 7.0.0.3
+00:00:08  1353MB         | loaded 121 plugins from 9 lib(s) in 0:00.06
+00:00:08  1353MB         | loading plugins from C:\Program Files\Autodesk\Arnold\maya2022\bin\..\plugins ...
+00:00:08  1353MB         |  alembic_proc.dll: alembic uses Arnold 7.0.0.3
+00:00:08  1353MB         |  cryptomatte.dll: cryptomatte uses Arnold 7.0.0.3
+00:00:08  1353MB         |  cryptomatte.dll: cryptomatte_filter uses Arnold 7.0.0.3
+00:00:08  1353MB         |  cryptomatte.dll: cryptomatte_manifest_driver uses Arnold 7.0.0.3
+00:00:08  1354MB         |  synColor_shaders.dll: color_manager_syncolor uses Arnold 7.0.0.3
+00:00:08  1384MB         |  usd_proc.dll: usd uses Arnold 7.0.0.3
+00:00:08  1384MB         | loaded 6 plugins from 4 lib(s) in 0:00.32
+###############################################################################
+Begin attempted read of a shade fragment XML file.
+Attempting to read fragment XML code from: aiRectangleAreaLight.xml
+Errors loading XML:
+-------------------------------------------------------------------------------
+Could not find file: aiRectangleAreaLight.xml
+-------------------------------------------------------------------------------
+End attempted read of fragment XML.
+###############################################################################
+# [ProRigs] ProRigs Environment User Setup
+# [ProRigs] Configured Scene settings
+# [ProRigs] Configured render settings
+# [ProRigs] Created defaultArnoldRenderOptions node.
+# [ProRigs] Renderer set to: arnold
+# [ProRigs] Renderer image size set to 1920x1080.
+# [ProRigs] AOV 'ID' added to active list.
+# [ProRigs] AOV 'coat' added to active list.
+# [ProRigs] AOV 'diffuse' added to active list.
+# [ProRigs] AOV 'emission' added to active list.
+# [ProRigs] AOV 'sheen' added to active list.
+# [ProRigs] AOV 'specular' added to active list.
+# [ProRigs] AOV 'sss' added to active list.
+# [ProRigs] AOV 'transmission' added to active list.
+Warning: line 1: Unrecognized node type for node 'hyperShadePrimaryNodeEditorSavedTabsInfo'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:MayaNodeEditorBookmarks'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:hyperShadePrimaryNodeEditorSavedTabsInfo2'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:MayaNodeEditorBookmarks1'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:hyperShadePrimaryNodeEditorSavedTabsInfo3'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:MayaNodeEditorSavedTabsInfo'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:rgb_color_system_v02_00_hyperShadePrimaryNodeEditorSavedTabsInfo'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'ProRigs_cheetah_v00_00_015:hyperShadePrimaryNodeEditorSavedTabsInfo'; preserving node information during this session.
+Warning: line 1: Unrecognized node type for node 'prorigs:hyperShadePrimaryNodeEditorSavedTabsInfo'; preserving node information during this session.
+Warning: line 1: The mesh |ProRigs_cheetah_v00_00_015:ac_GRP|ProRigs_cheetah_v00_00_015:ac_mdl_grp|ProRigs_cheetah_v00_00_015:fur_geo|ProRigs_cheetah_v00_00_015:fur_geoShapeOrig contains invalid or unused components.  These can be cleaned up using the Mesh Cleanup dialog.
+Warning: line 1: Errors have occurred while reading this scene that may result in data loss.
+File read in  5.4 seconds.
+Result: //Coruscant/work/prorigs/assets/dev/rigs/char/cheetah/maya/cheetah_render__22048.mb
+Exporting Arnold Scene...
+Converting 28 textures to .TX....
+Updating Arnold Scene...
+00:00:48  1818MB WARNING | rendering with watermarks because of failed authorization:
+00:00:48  1818MB         |  [rlm] error initializing license system:
+00:00:48  1818MB         |  [rlm]  * Can't read license data (-102)No such file or directory (errno: 2)
+00:00:48  1818MB         |  [clm.v1] license server was not set (51)
+00:00:48  1818MB         |  [clm.v2] SERVICE (13): entitlement not found
+00:00:48  1818MB         |  environment variables:
+00:00:48  1818MB         |         ARNOLD_LICENSE_ORDER   = (not set)
+00:00:48  1818MB         |         ARNOLD_LICENSE_MANAGER = (not set)
+00:00:48  1818MB         |  [rlm]  solidangle_LICENSE     = (not set)
+00:00:48  1818MB         |  [rlm]  RLM_LICENSE            = (not set)
+00:00:48  1818MB         |  [clm]  ADSKFLEX_LICENSE_FILE  = (not set)
+00:00:48  1818MB         |  [clm]  LM_LICENSE_FILE        = (not set)
+Updating Arnold Scene...
+Updating Arnold Scene...
+Scene //Coruscant/work/prorigs/assets/dev/rigs/char/cheetah/maya/cheetah_render__22048.mb completed.
+00:02:25  2041MB         |   unloading 14 plugins
+00:02:25  2041MB         |    closing hairPhysicalShader_shaders.dll ...
+00:02:25  2041MB         |    closing lookdevkit_shaders.dll ...
+00:02:25  2041MB         |    closing mtoa_shaders.dll ...
+00:02:25  2041MB         |    closing renderSetup_shaders.dll ...
+00:02:25  2041MB         |    closing xgenSpline_shaders.dll ...
+00:02:25  2041MB         |    closing mtoa_ParticleInstancer_proc.dll ...
+00:02:25  2041MB         |    closing mtoa_ParticleVolume_proc.dll ...
+00:02:25  2040MB         |    closing xgenSpline_procedural.dll ...
+00:02:25  2040MB         |    closing xgen_procedural.dll ...
+00:02:25  2040MB         |    closing alembic_proc.dll ...
+00:02:25  2040MB         |    closing cryptomatte.dll ...
+00:02:25  2040MB         |    closing synColor_shaders.dll ...
+00:02:25  2039MB         |    closing usd_proc.dll ...
+00:02:25  2037MB         |    closing arnold_bifrost.dll ...
+00:02:25  2037MB         |   unloading plugins done
+00:02:25  2037MB         |  Arnold shutdown
+
+
+
+1/6/2025
+
+Starting "C:\Program Files\Autodesk\maya2022\bin\mayabatch.exe"

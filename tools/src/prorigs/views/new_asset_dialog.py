@@ -27,7 +27,7 @@ class NewAssetDialog(QDialog):
         self.assets_model = AssetsModel()
         self.assets_widget = AssetsWidget()
         self.assets_controller = AssetsController(self.assets_model, self.assets_widget)
-        self.assets_widget.asset_names_combo_box.hide()
+        self.assets_widget.toggle_asset_names(False)
 
         self.button_box = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         self.button_box.button(QDialogButtonBox.Ok).setEnabled(False)
@@ -49,7 +49,7 @@ class NewAssetDialog(QDialog):
 
     def on_ok_clicked(self):
         asset_name = self.asset_name_input.text().strip()
-        asset_type = self.assets_view.asset_types_combo_box.currentText()
+        asset_type = self.assets_widget.asset_types_combo_box.currentText()
         print(f"Emitting signal: asset_type={asset_type}, asset_name={asset_name}")  # Debugging line
         self.new_asset.emit(asset_type, asset_name)  # Emit signal to controller
         self.accept()  # Close the dialog

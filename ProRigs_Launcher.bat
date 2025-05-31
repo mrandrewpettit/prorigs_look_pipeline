@@ -14,7 +14,7 @@ REM User defined custom environment variables
 set AUTODESK_ROOT=C:\Program Files\Autodesk\
 set SIDEFX_ROOT=C:\Program Files\Side Effects Software\
 set SUBSTANCE_PAINTER_ROOT=E:\SteamLibrary\steamapps\common\
-set PRG_ASSETS=\\Coruscant\work\prorigs\assets\
+set PRG_ASSETS=W:\prorigs\assets\
 
 REM Navigate to the Python script's directory
 cd /d "%PRG_TOOLS%src\prorigs\"

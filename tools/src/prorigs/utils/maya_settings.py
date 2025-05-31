@@ -1,3 +1,5 @@
+import os
+
 import maya.cmds as cmds
 
 def _set_renderer(renderer_name):
@@ -46,4 +48,11 @@ def configure_render_settings():
 
 def configure_scene_settings():
     print("# [ProRigs] Configured Scene settings")
+
+    maya_project = os.getenv("MAYA_PROJECT")
+    if maya_project:
+        print(f"Setting Maya project to: {maya_project}")
+        cmds.workspace(maya_project, openWorkspace=True)
+    else:
+        print(f"Warning: Maya project not set")
     cmds.setAttr('hardwareRenderingGlobals.transparencyAlgorithm', 1)

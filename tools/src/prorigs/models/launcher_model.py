@@ -65,7 +65,7 @@ class LauncherModel:
         return maya_env
     
     def get_substance_painter_env(self):
-        substance_painter_root = os.environ['SUBSTANCE_PAINTER_ROOT'] + f'Substance 3D Painter {self._curr_software_version}'
+        substance_painter_root = os.environ['SUBSTANCE_PAINTER_ROOT'] + f'Substance 3D Painter {self._curr_software_version}\\'
         substance_painter_env = {
             'SUBSTANCE_PAINTER_EXE': f'{substance_painter_root}Adobe Substance 3D Painter.exe'
         }

@@ -43,6 +43,6 @@ evalDeferred("autoLoadPlugin(\"\", \"gpuCache\", \"gpuCache\")");
 evalDeferred("autoLoadPlugin(\"\", \"mayaUsdPlugin\", \"mayaUsdPlugin\")");
 evalDeferred("autoLoadPlugin(\"\", \"OneClick\", \"OneClick\")");
 evalDeferred("autoLoadPlugin(\"\", \"ArubaTessellator\", \"ArubaTessellator\")");
-evalDeferred("autoLoadPlugin(\"\", \"PRLicensePlugin\", \"PRLicensePlugin\")");
 evalDeferred("autoLoadPlugin(\"\", \"quatNodes\", \"quatNodes\")");
+evalDeferred("autoLoadPlugin(\"\", \"PRLicensePlugin\", \"PRLicensePlugin\")");
 evalDeferred("autoLoadPlugin(\"\", \"fbxmaya\", \"fbxmaya\")");

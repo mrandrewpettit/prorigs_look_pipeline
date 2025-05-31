@@ -1,0 +1,4 @@
+import os
+
+asset_name = os.getenv('MAYA_PROJECT')
+print(asset_name)

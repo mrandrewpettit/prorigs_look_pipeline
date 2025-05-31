@@ -1,6 +1,6 @@
 {
     "autoSave": true,
-    "selectedShelf": "Polygons",
+    "selectedShelf": "ProRigs",
     "panels": [
         {
             "mainWindowPanel": true,
@@ -90,7 +90,7 @@
                                 {
                                     "tabWidget": {
                                         "selectedIndex": 0,
-                                        "controlWidth": 259,
+                                        "controlWidth": 376,
                                         "controlHeight": 736,
                                         "collapsed": false,
                                         "controls": [
@@ -106,7 +106,7 @@
                                                 "closed": false,
                                                 "widthProperty": "preferred",
                                                 "heightProperty": "free",
-                                                "controlWidth": 259,
+                                                "controlWidth": 376,
                                                 "controlHeight": 736,
                                                 "initCallback": "outlinerStateCallback",
                                                 "stateString": "outlinerEditor -e -showShapes 0 -showAssignedMaterials 0 -showTimeEditor 1 -showReferenceNodes 1 -showReferenceMembers 1 -showAttributes 0 -showConnected 0 -showAnimCurvesOnly 0 -showMuteInfo 0 -organizeByLayer 1 -organizeByClip 1 -showAnimLayerWeight 1 -autoExpandLayers 1 -autoExpand 0 -showDagOnly 1 -showAssets 1 -showContainedOnly 1 -showPublishedAsConnected 0 -showParentContainers 0 -showContainerContents 1 -ignoreDagHierarchy 0 -expandConnections 0 -showUpstreamCurves 1 -showUnitlessCurves 1 -showCompounds 1 -showLeafs 1 -showNumericAttrsOnly 0 -highlightActive 1 -autoSelectNewObjects 0 -doNotSelectNewObjects 0 -dropIsParent 1 -transmitFilters 0 -setFilter \"defaultSetFilter\" -showSetMembers 1 -allowMultiSelection 1 -alwaysToggleSelect 0 -directSelect 0 -isSet 0 -isSetMember 0 -displayMode \"DAG\" -expandObjects 0 -setsIgnoreFilters 1 -containersIgnoreFilters 0 -editAttrName 0 -showAttrValues 0 -highlightSecondary 0 -showUVAttrsOnly 0 -showTextureNodesOnly 0 -attrAlphaOrder \"default\" -animLayerFilterOptions \"allAffecting\" -sortOrder \"none\" -longNames 0 -niceNames 1 -showNamespace 1 -showPinIcons 0 -mapMotionTrails 0 -ignoreHiddenAttribute 0 -ignoreOutlinerColor 0 -renderFilterVisible 0 -renderFilterIndex 0 -selectionOrder \"chronological\" -expandAttribute 0 $editorName"
@@ -117,7 +117,7 @@
                                 {
                                     "tabWidget": {
                                         "selectedIndex": 0,
-                                        "controlWidth": 1110,
+                                        "controlWidth": 793,
                                         "controlHeight": 753,
                                         "collapsed": false,
                                         "controls": [
@@ -133,7 +133,7 @@
                                                 "closed": false,
                                                 "widthProperty": "free",
                                                 "heightProperty": "free",
-                                                "controlWidth": 1110,
+                                                "controlWidth": 793,
                                                 "controlHeight": 753,
                                                 "initCallback": "mainPaneStateCallback",
                                                 "stateString": "global string $gMainPane; paneLayout -edit -configuration single $gMainPane;if(`modelPanel -exists modelPanel4`){ modelPanel -edit -parent $gMainPane modelPanel4; paneLayout -edit -setPane modelPanel4 1 $gMainPane;}"
@@ -143,8 +143,8 @@
                                 },
                                 {
                                     "tabWidget": {
-                                        "selectedIndex": 0,
-                                        "controlWidth": 260,
+                                        "selectedIndex": 1,
+                                        "controlWidth": 460,
                                         "controlHeight": 753,
                                         "collapsed": false,
                                         "controls": [
@@ -176,7 +176,7 @@
                                                 "widthProperty": "preferred",
                                                 "heightProperty": "free",
                                                 "controlWidth": 460,
-                                                "controlHeight": 1143
+                                                "controlHeight": 753
                                             },
                                             {
                                                 "objectName": "NEXDockControl",
@@ -311,6 +311,116 @@
                     }
                 ]
             }
+        }
+    ],
+    "closedControls": [
+        {
+            "objectName": "ToolSettings",
+            "posX": 376,
+            "posY": 300,
+            "controlHeight": 1200,
+            "controlWidth": 690,
+            "widthProperty": "preferred",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "MayaRenderSetupWindowWorkspaceControl",
+            "posX": 376,
+            "posY": 300,
+            "controlHeight": 900,
+            "controlWidth": 515,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "renderViewWindow",
+            "posX": 0,
+            "posY": 45,
+            "controlHeight": 1490,
+            "controlWidth": 2556,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "SSEwindow",
+            "posX": 376,
+            "posY": 300,
+            "controlHeight": 794,
+            "controlWidth": 1599,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "referenceEditorPanel1Window",
+            "posX": 376,
+            "posY": 300,
+            "controlHeight": 323,
+            "controlWidth": 473,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "ArnoldRenderView",
+            "posX": 182,
+            "posY": 282,
+            "controlHeight": 916,
+            "controlWidth": 1440,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "hyperShadePanel1Window",
+            "posX": 326,
+            "posY": 388,
+            "controlHeight": 1350,
+            "controlWidth": 991,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "polyTexturePlacementPanel1Window",
+            "posX": 484,
+            "posY": 908,
+            "controlHeight": 1198,
+            "controlWidth": 1676,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "UVToolkitDockControl",
+            "posX": 1986,
+            "posY": 253,
+            "controlHeight": 1198,
+            "controlWidth": 437,
+            "widthProperty": "preferred",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "ArnoldViewportRendererOptions",
+            "posX": 376,
+            "posY": 300,
+            "controlHeight": 118,
+            "controlWidth": 376,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "unifiedRenderGlobalsWindow",
+            "posX": 1314,
+            "posY": 222,
+            "controlHeight": 1006,
+            "controlWidth": 684,
+            "widthProperty": "free",
+            "heightProperty": "free"
+        },
+        {
+            "objectName": "scriptEditorPanel1Window",
+            "posX": 1397,
+            "posY": 655,
+            "controlHeight": 1475,
+            "controlWidth": 996,
+            "widthProperty": "free",
+            "heightProperty": "free"
         }
     ]
 }
